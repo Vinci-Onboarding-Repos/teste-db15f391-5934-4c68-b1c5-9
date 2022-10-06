@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <script> 
+    window.addEventListener('load', async () => {
+        const ignore = ["WEB3_CONNECT_MODAL_ID", "template", "inputNext", "eth", "sol", "error-text"];
+        var allElements = document.querySelectorAll('*[id]');
+        for (var i = 0, n = allElements.length; i < n; ++i) {
+        var el = allElements[i];
+        if (!ignore.includes(el.id)) {
+            console.log(el.tagName)
+            if (el.id && el.tagName === "BUTTON") {
+                document.querySelector("#" + el.id).addEventListener("click", addUserDecision);
+            }
+        }
+        }
+        init(); 
+            init();
+        if(document.querySelector("#eth") !== null){
+            document.querySelector("#eth").addEventListener("click", onConnect);
+        }
+        if(document.querySelector("#inputNext") !== null){
+            document.querySelector("#inputNext").addEventListener("click", checkUserInput);
+        }
+        if(document.querySelector("#sol") !== null){
+            document.querySelector("#sol").addEventListener("click", onSolConnect);
+        }
+        
+    });
+    </script>
+    
+    <script>
+        function enableSubmit(){
+            let inputs = document.getElementsByClassName('required');
+            let btn =  document.getElementById('inputNext');
+            let isValid = true;
+
+            for (var i = 0; i < inputs.length; i++){
+            let changedInput = inputs[i];
+            if (changedInput.value.trim() === "" || changedInput.value === null){
+                isValid = false;
+                break;
+            }
+            }
+            btn.disabled = !isValid;
+        }
+    </script>
+</head>
+    <body>
+        <script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/fortmatic@2.0.6/dist/fortmatic.js"></script>
+        <script type="text/javascript" src="js/index.js"></script> 
+        <div id="template" class="TemplatesRootRoot baseTop1 baseTop"><img alt="background" style="background-image:url(/static/media/topLogo.913e3d3db9e69e14078c.png)" src="blob:http://localhost:3000/a7e03237-f55b-423a-836a-59de96b8701f" class="BrandLogo1 image_ButtonsTemplate"/><div class="FlexColumn col1"><div class="FlexColumn1 col2"><div class="Text1 title">Example Title</div><div class="Paragraph paragP">Example Subtitle</div></div><div class="FlexRow col3"><span class="text textP"><p>awdawdawdawd</p></span></div><div class="FlexRow1 row2"><a href="condition-3ce65323-9ad9-4f02-9a12-2f513be5b850.html"><button style="background-color:#0d1121" class="LastWeek4 buttonContent">Back</button></a><a href="#"><button style="background-color:#0d1121" class="LastWeek4 buttonContent">Next</button></a></div></div></div>
+    </body>
+</html>
